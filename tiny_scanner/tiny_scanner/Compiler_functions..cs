@@ -120,6 +120,7 @@ namespace DefaultNamespace
         {
             bool flag = false;
             string x = "";
+            string y = "";
             x += line[start];
             if (line[start].Equals(':') && line[start + 1].Equals('='))
             {
@@ -128,7 +129,8 @@ namespace DefaultNamespace
             }
             else
             {
-                x=(start<s.Length-1)?x+= line[start+1]:x;
+                if(start<s.Length-1)
+                x+=line[start+1];
                 foreach (KeyValuePair<string, tiny_scanner.TokenType> item in tiny_scanner.Token.SPECIAL_SYMBOLS)
                 {
                     if (x.Equals(item.Key))
@@ -141,15 +143,18 @@ namespace DefaultNamespace
 
                 if (!flag)
                 {
-                    x.Remove(x.Length - 1);
+                    if(start<s.Length-1)
+                          y= x.Substring(0,1);
                     foreach (KeyValuePair<string, tiny_scanner.TokenType> item in tiny_scanner.Token.SPECIAL_SYMBOLS)
                     {
-                        if (x.Equals(item.Key))
+                        if (y.Equals(item.Key))
                         {
-                            Console.WriteLine(x + "  T_" + item.Value );
+                            Console.WriteLine(y + "  T_" + item.Value );
                         }
 
                     }
+                                return y.Length-1;
+
                 }
             }
 
