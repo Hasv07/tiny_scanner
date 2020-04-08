@@ -3,3 +3,8 @@ C:\Users\owner\RiderProjects\tiny_scanner\tiny_scanner\bin\Debug\tiny_scanner.pd
 C:\Users\owner\RiderProjects\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.csprojAssemblyReference.cache
 C:\Users\owner\RiderProjects\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.exe
 C:\Users\owner\RiderProjects\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.pdb
+C:\Users\owner\Documents\GitHub\tiny_scanner\tiny_scanner\tiny_scanner\bin\Debug\tiny_scanner.exe
+C:\Users\owner\Documents\GitHub\tiny_scanner\tiny_scanner\tiny_scanner\bin\Debug\tiny_scanner.pdb
+C:\Users\owner\Documents\GitHub\tiny_scanner\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.csprojAssemblyReference.cache
+C:\Users\owner\Documents\GitHub\tiny_scanner\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.exe
+C:\Users\owner\Documents\GitHub\tiny_scanner\tiny_scanner\tiny_scanner\obj\Debug\tiny_scanner.pdb

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 
 namespace DefaultNamespace
 {
@@ -12,10 +13,11 @@ namespace DefaultNamespace
         {
             line = line1;
             bool flag = false;
+            bool flag2 = false;
 
             for (int i = 0; i < line.Length; i++)
             {
-                if (!flag)
+                if (!flag&&!flag2)
                 {
                     if (line[i].Equals(' ')) continue;
                     else if (('a' <= line[i] && line[0] <= 'z') || ('A' <= line[i] && line[i] <= 'Z'))
@@ -27,9 +29,11 @@ namespace DefaultNamespace
                         flag = true;
                         i += 1;
                     }
+                    else if (line[i].Equals('"')) flag2 = true;
+
                     else i += handle_symbols(line, i);
                 }
-                else
+                else if(flag)
                 {
                     if (line[i].Equals('*') && line[i + 1].Equals('/'))
                     {
@@ -37,12 +41,27 @@ namespace DefaultNamespace
                         i += 1;
                     }
                 }
+                else if (flag2)
+                {
+                    string x="";
+
+                    while(line[i]!='"')
+                    {
+                        x+=line[i];
+                        i++;
+                    } 
+                    flag2 = false;
+                    Console.WriteLine('"'+x+'"'+"  T_String");
+
+
+
+                }
             }
         }
 
         public int handle_reserved_and_id(string s,int start)
         {
-            flag = false;
+            bool flag = false;
             string x="";
             
             for (int i = start; i < s.Length; i++)
@@ -109,7 +128,7 @@ namespace DefaultNamespace
             }
             else
             {
-                x=(start<x.Length-1)?x+= line[start+1]:x;
+                x=(start<s.Length-1)?x+= line[start+1]:x;
                 foreach (KeyValuePair<string, tiny_scanner.TokenType> item in tiny_scanner.Token.SPECIAL_SYMBOLS)
                 {
                     if (x.Equals(item.Key))
