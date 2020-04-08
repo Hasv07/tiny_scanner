@@ -20,7 +20,7 @@ namespace DefaultNamespace
                 if (!flag&&!flag2)
                 {
                     if (line[i].Equals(' ')) continue;
-                    else if (('a' <= line[i] && line[0] <= 'z') || ('A' <= line[i] && line[i] <= 'Z'))
+                    else if (('a' <= line[i] && line[i]<= 'z') || ('A' <= line[i] && line[i] <= 'Z'))
                         i += handle_reserved_and_id(line, i);
                     else if ('0' <= line[i] && line[i] <= '9')
                         i += handle_numbers(line, i);
@@ -144,7 +144,7 @@ namespace DefaultNamespace
                 if (!flag)
                 {
                     if(start<s.Length-1)
-                          y= x.Substring(0,1);
+                          y= x.Substring(0,x.Length-1);
                     foreach (KeyValuePair<string, tiny_scanner.TokenType> item in tiny_scanner.Token.SPECIAL_SYMBOLS)
                     {
                         if (y.Equals(item.Key))

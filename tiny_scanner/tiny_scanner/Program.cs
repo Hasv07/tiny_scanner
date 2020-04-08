@@ -6,7 +6,7 @@ namespace tiny_scanner
     {
         public static void Main(string[] args)
         {
-            Compiler_functions test=new Compiler_functions("return a+b");
+            Compiler_functions test=new Compiler_functions("{return a+b}");
         }
     }
 }
