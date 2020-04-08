@@ -11,24 +11,38 @@ namespace DefaultNamespace
         public Compiler_functions(string line1)
         {
             line = line1;
+            bool flag = false;
+
             for (int i = 0; i < line.Length; i++)
             {
-
-                if (line[i].Equals(' ')) continue;
-                else if (('a' <= line[i] && line[0] <= 'z') || ('A' <= line[i] && line[i] <= 'Z'))
-                    i+=handle_reserved_and_id(line,i);
-                else if ('0' <= line[i] && line[i] <= '9')
-                    i+=handle_numbers(line, i);
-                else i+=handle_symbols(line, i);
-                    
-                    
-                    
+                if (!flag)
+                {
+                    if (line[i].Equals(' ')) continue;
+                    else if (('a' <= line[i] && line[0] <= 'z') || ('A' <= line[i] && line[i] <= 'Z'))
+                        i += handle_reserved_and_id(line, i);
+                    else if ('0' <= line[i] && line[i] <= '9')
+                        i += handle_numbers(line, i);
+                    else if (line[i].Equals('/') && line[i + 1].Equals('*'))
+                    {
+                        flag = true;
+                        i += 1;
+                    }
+                    else i += handle_symbols(line, i);
+                }
+                else
+                {
+                    if (line[i].Equals('*') && line[i + 1].Equals('/'))
+                    {
+                        flag = false;
+                        i += 1;
+                    }
+                }
             }
         }
 
         public int handle_reserved_and_id(string s,int start)
         {
-            bool flag = false;
+            flag = false;
             string x="";
             
             for (int i = start; i < s.Length; i++)
