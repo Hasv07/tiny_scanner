@@ -58,23 +58,7 @@ namespace tiny_scanner
     FloatType
 }
 
-enum State
-{
-    Identifier,
-    Assignment,
-    InOR,
-    InAnd,
-    InNotEqual,
-    Int,
-    Float,
-    String,
-    Start,
-    Done,
-    InComment, 
-    InSlash,
-    EndingComment,
-    Error
-}
+
 
 
     class Token
